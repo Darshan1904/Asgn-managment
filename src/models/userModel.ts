@@ -34,6 +34,8 @@ const UserSchema = new Schema<IUser>({
     },
 });
 
+// Add an index on the email field for faster queries
+UserSchema.index({ email: 1 });
 
 // Hash the password before saving the user model
 UserSchema.pre("save", async function (next) {
