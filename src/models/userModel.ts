@@ -34,12 +34,15 @@ const UserSchema = new Schema<IUser>({
     },
 });
 
+
+// Hash the password before saving the user model
 UserSchema.pre("save", async function (next) {
     if (!this.isModified("password") || !this.password) return next();
     this.password = await bcrypt.hash(this.password, 12);
     next();
 });
 
+// Generate JWT token method
 UserSchema.methods.generateAuthToken = function (): string {
     return jwt.sign(
         {
@@ -52,6 +55,7 @@ UserSchema.methods.generateAuthToken = function (): string {
     );
 };
 
+// Compare the password provided by the user with the hashed password in the database
 UserSchema.methods.comparePassword = async function(candidatePassword: string) {
     return await bcrypt.compare(candidatePassword, this.password);
 }

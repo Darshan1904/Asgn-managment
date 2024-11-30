@@ -5,8 +5,10 @@ import userRoutes from './routes/userRoutes';
 import adminRoutes from './routes/adminRoutes';
 import authRoutes from './routes/authRoutes';
 
+// Load environment variables from .env file
 dotenv.config();
 
+// Create Express server
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

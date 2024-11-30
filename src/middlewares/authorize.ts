@@ -6,6 +6,7 @@ interface AuthenticatedRequest extends Request {
 
 export const authorize = (roles: string[]) => {
     return (req: AuthenticatedRequest, res: Response, next: NextFunction): void => {
+        // Check if the user has the required role
         if (!req.user || !roles.includes(req.user.role)) {
             res.status(403).json({ error: "Forbidden: Access denied" });
             return;

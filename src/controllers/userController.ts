@@ -3,6 +3,14 @@ import Assignment from "../models/assignmentModel";
 import { AuthenticatedRequest } from "../middlewares/authenticate";
 import User from "../models/userModel";
 
+/**
+ * @desc    Upload an assignment and assign it to an admin
+ * @route   POST /api/users/upload
+ * @access  Private (User role required)
+ * @param   {AuthenticatedRequest} req - The request object, containing the assignment details and authenticated user information
+ * @param   {Response} res - The response object
+ * @returns {Promise<void>}
+ */
 export const uploadAssignment = async (
     req: AuthenticatedRequest,
     res: Response

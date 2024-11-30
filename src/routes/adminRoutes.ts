@@ -5,8 +5,11 @@ import { viewAssignments, updateAssignmentStatusAccept, updateAssignmentStatusRe
 
 const router = express.Router();
 
+// View tagged assignments
 router.get('/assignments', authenticate, authorize(['admin']), viewAssignments);
-router.post('/assignments/:id/accept', authenticate, authorize(['admin']), updateAssignmentStatusAccept);
-router.post('/assignments/:id/reject', authenticate, authorize(['admin']), updateAssignmentStatusReject);
+
+// Update assignment status
+router.put('/assignments/:id/accept', authenticate, authorize(['admin']), updateAssignmentStatusAccept);
+router.put('/assignments/:id/reject', authenticate, authorize(['admin']), updateAssignmentStatusReject);
 
 export default router;

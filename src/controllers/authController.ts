@@ -1,7 +1,14 @@
 import { Request, Response } from 'express';
 import User from '../models/userModel';
 
-// Register Controller
+/**
+ * @desc    Register a new user
+ * @route   POST /api/auth/register
+ * @access  Public
+ * @param   {Request} req - The request object, containing user registration details
+ * @param   {Response} res - The response object
+ * @returns {Promise<void>}
+ */
 export const registerUser = async (req: Request, res: Response): Promise<void> => {
     try {
         const { name, email, password, role } = req.body;
@@ -32,7 +39,14 @@ export const registerUser = async (req: Request, res: Response): Promise<void> =
     }
 };
 
-// Login Controller
+/**
+ * @desc    login a new user
+ * @route   POST /api/auth/login
+ * @access  Public
+ * @param   {Request} req - The request object, containing user registration details
+ * @param   {Response} res - The response object
+ * @returns {Promise<void>}
+ */
 export const loginUser = async (req: Request, res: Response): Promise<void> => {
     try {
         const { email, password } = req.body;

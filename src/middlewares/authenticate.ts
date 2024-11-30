@@ -11,12 +11,14 @@ export const authenticate = (
     res: Response,
     next: NextFunction
 ): void => {
+    // Check if the token is present in the headers
     const token = req.headers.authorization?.split(" ")[1];
     if (!token) {
         res.status(401).json({ error: "Unauthorized access." });
         return;
     }
 
+    // Verify the token
     try {
         const decoded = jwt.verify(token, config.JWT_SECRET) as AuthenticatedRequest["user"];
         req.user = decoded;
