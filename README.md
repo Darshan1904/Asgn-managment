@@ -1,5 +1,7 @@
 # Project Setup and Running Instructions
 
+Deployed Api Base Url: https://asgn-managment.onrender.com
+
 ## Prerequisites
 Before getting started, ensure you have the following installed on your system:
 
