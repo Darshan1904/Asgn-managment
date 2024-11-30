@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes';
 import adminRoutes from './routes/adminRoutes';
+import authRoutes from './routes/authRoutes';
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
+app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/admins", adminRoutes);
 
